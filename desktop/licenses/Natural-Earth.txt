@@ -1,0 +1,8 @@
+Natural Earth geographic coverage data (public domain)
+Source: https://github.com/nvkelso/natural-earth-vector/blob/master/geojson/ne_10m_admin_0_map_units.geojson
+Terms: https://www.naturalearthdata.com/about/terms-of-use/
+
+The bundled JSON retains the CHN map-unit geometry for offline coordinate
+adapter coverage, excluding the separate Hong Kong, Macao and Taiwan units.
+It is not displayed as a boundary map. Natural Earth's generalized geometry
+is not a precision geofence; border/coastline accuracy remains a limitation.

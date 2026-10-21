@@ -1,0 +1,14 @@
+{
+  "version": "0.4.0",
+  "passed": true,
+  "checks": [
+    "typescript",
+    "vite",
+    "core"
+  ],
+  "coreTests": 31,
+  "readmeImages": 7,
+  "localLinksResolved": true,
+  "sourceFilesInspected": 70,
+  "realModelRequests": 0
+}

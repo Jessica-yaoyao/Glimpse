@@ -1,0 +1,37 @@
+/* LOCKED DESIGN SYSTEM — source coordinates and sampled colors: reference-manifest.json */
+@font-face {
+  font-family: 'Xiaolai';
+  src: url('./assets/Xiaolai-Regular.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+:root {
+  --paper: #fcf4e3;
+  --ink: #161815;
+  --muted: #63655f;
+  --line: #b8b6a8;
+  --green: #b4ca70;
+  --pink: #fdd5d9;
+  --blue: #e6eff6;
+  --mint: #e6f1e1;
+  --butter: #eef2dd;
+  --yellow: #fde580;
+  --leaf: #88b748;
+  --coral: #ef6757;
+  --accent: var(--ink);
+  --font-hand: 'Xiaolai', 'PingFang SC', sans-serif;
+  --texture-paper: url('./assets/paper.png');
+  --texture-green: url('./assets/green.png');
+  --texture-pink: url('./assets/pink.png');
+  --texture-blue: url('./assets/blue.png');
+  --texture-mint: url('./assets/mint.png');
+  --texture-butter: url('./assets/butter.png');
+  --texture-yellow: url('./assets/yellow.png');
+  --page-inset: 20px;
+  --radius-photo: 9px;
+  --radius-card: 12px;
+  --radius-field: 10px;
+  --stroke-ink: 1.6px;
+  --stroke-soft: 1px;
+}

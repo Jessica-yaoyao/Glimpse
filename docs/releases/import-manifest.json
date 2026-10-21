@@ -1,0 +1,286 @@
+{
+  "version": "0.4.0",
+  "importedAt": "2026-10-21",
+  "originalDeliveryDate": "2026-10-01",
+  "sourceRecovery": "complete pre-v0.5 snapshot",
+  "repositoryPortabilityChanges": [
+    "desktop build directory uses .build/desktop",
+    "default native output uses .build/macos",
+    "portable dev wrapper",
+    "self-contained README and documentation"
+  ],
+  "macOSArchive": {
+    "filename": "Glimpse-v0.4.0-macOS.zip",
+    "sha256": "247482a7a1f2f5545637dffe9752d53cf1cbb47b3b272dc343ddf0282f0a3c86"
+  },
+  "sourceFiles": [
+    {
+      "path": "App.tsx",
+      "sha256": "a7ee8d295a219db8bb96a11f2eeb99f7db74d00184c26164061646bed0ee82ce"
+    },
+    {
+      "path": "assets/samples/fox.jpg",
+      "sha256": "0fe3a660617f1b30417945d50ec67c4c1e412bb6bf33a6e9daf0f292fbd677ed"
+    },
+    {
+      "path": "components/Header.tsx",
+      "sha256": "69de0c7ac6ceff424fd3823b8327c9726be7df4ff1161a7de53cfa9f910f88da"
+    },
+    {
+      "path": "components/Icon.tsx",
+      "sha256": "6a57266d44e52f84bc13fda2926700aabd73f6bbb8daeb79fab8bfb8b4f8b3c4"
+    },
+    {
+      "path": "components/LoadingSequence.tsx",
+      "sha256": "ba1d0f63f5be4083dd2de7e7a5414a4a75553c9276435a442df70727e7a86f3d"
+    },
+    {
+      "path": "components/RevealCanvas.tsx",
+      "sha256": "07c77b5819a9babaeb29d6b5645860b96fa8f73a87575de839aa4fb5f01a8b15"
+    },
+    {
+      "path": "components/RevealSlider.tsx",
+      "sha256": "d96912d65fc6be511f2d89caa7519a37efcef46a43a31739947ddbe13a57894c"
+    },
+    {
+      "path": "components/SelectionBox.tsx",
+      "sha256": "95da8cee6079497777be6f239f9a71683fb718555af8032bd9e9114bb757659f"
+    },
+    {
+      "path": "components/SelectionEditor.tsx",
+      "sha256": "82bfdfb728d863e3ba8824dd05577c6a84dd06f042dcc2b3ea5e26e5f3454609"
+    },
+    {
+      "path": "data/fox.ts",
+      "sha256": "5adf0a8a40823fd2af938ef9a23d3d7bbebe8c1c7b968b506658ba862ffb9a66"
+    },
+    {
+      "path": "data/samples.ts",
+      "sha256": "6e3b5b3c575a644d2d4ce8b96d5cb6d37cbcf26dfe5c7f78bf9b6842f2b650cd"
+    },
+    {
+      "path": "design/ReferenceArt.tsx",
+      "sha256": "388cb4e1a08e1dce6fe179a73b8e205fd3d80a3465b6c02d48591d691f86970f"
+    },
+    {
+      "path": "design/assets/Xiaolai-Regular.woff2",
+      "sha256": "610c466f89a07876bde9e0895d74de2ed6e2ece61c4a258bb385c586cc6b5d2e"
+    },
+    {
+      "path": "design/assets/blue.png",
+      "sha256": "af63e4c01dd04717efa7ad51f0d488d092d1093316e754c853ba2f3b84ecb751"
+    },
+    {
+      "path": "design/assets/butter.png",
+      "sha256": "ba1b05393798570cf1712285b118cbfab7d57b2ccde278c32cfb7fd093e415ef"
+    },
+    {
+      "path": "design/assets/camera.png",
+      "sha256": "5cf7c21a05f8ba6c4d3981fd21ee54549ba558a2296e2d45c7923a02b4210106"
+    },
+    {
+      "path": "design/assets/cat.png",
+      "sha256": "62b83cd1172e4fc15842d73a6437305e84a92ccccd484a82d1e118eebf3c58e8"
+    },
+    {
+      "path": "design/assets/flying-dog.png",
+      "sha256": "66f4bfe741fb33fe89246e67ce17e1504c000da7dd47277cefda2129bdcbe649"
+    },
+    {
+      "path": "design/assets/green.png",
+      "sha256": "e41c62b4c00838e66fe7a6ba7abfe3ffe6e29eb05e36cf446ab15329ec147eca"
+    },
+    {
+      "path": "design/assets/library.png",
+      "sha256": "8dd26a40d3553f2a5b47d87adeabe255ba7dcdebd97db1e272c6065f0196462d"
+    },
+    {
+      "path": "design/assets/mint.png",
+      "sha256": "88cc3a1046a8e40fbf964245b47dfc29999272b5df702287a9ff87e12e0af030"
+    },
+    {
+      "path": "design/assets/observer.png",
+      "sha256": "226a02d7104ba1282da21f0fe3b8ffffe9ba83782884ce73b22c48f866959e8f"
+    },
+    {
+      "path": "design/assets/paper.png",
+      "sha256": "b48c42454a3a37fe55f88a89f364babb7b655522cfd77f9f8c90d6f209dd9dad"
+    },
+    {
+      "path": "design/assets/pink.png",
+      "sha256": "a1f7e96f26838d76d9d412c48aece78909ab87aeb015822724f3fb1b2e439fd8"
+    },
+    {
+      "path": "design/assets/splash-green.png",
+      "sha256": "08ad3cda9000e5f9026377a98e9ffcfe94290db45fbbe8299b9a4b3518ebf397"
+    },
+    {
+      "path": "design/assets/upload.png",
+      "sha256": "6423e7d1cab9112f2ed7dcdb5981807abc1f1e7b86a26719b9015cfcedc19ab7"
+    },
+    {
+      "path": "design/assets/yellow.png",
+      "sha256": "10c351f8a8c48016b187dbf42a751a984fd72d6d2f4bb5cfb2da5b3a76a42560"
+    },
+    {
+      "path": "design/reference-manifest.json",
+      "sha256": "b98e06523e6f3af6a612393aea1d72900b57234b69e328fb204cf69922207096"
+    },
+    {
+      "path": "design/tokens.css",
+      "sha256": "ecf7ed1ec6799d66ac45519928ee85d76a644270d6fe43ef972e0c5646c4b183"
+    },
+    {
+      "path": "index.css",
+      "sha256": "234c5ddd72f9d06521d81165467133ba97aeab996ac50db8a7902e840a9f4850"
+    },
+    {
+      "path": "main.tsx",
+      "sha256": "056e96fc9c0f54ee3ec53dcc9cd95f8d099dad7970e95e9bf51fde31f81366cc"
+    },
+    {
+      "path": "pages/Capture.tsx",
+      "sha256": "51cc58a29a62bc9ac9980c94afcbabc6aec3a06c155d33f2728d7e111a06350d"
+    },
+    {
+      "path": "pages/Describe.tsx",
+      "sha256": "2103b7cf7bda743dc674eef29d2bb234dd9ab83f5d66b3d5754ff09b56bcadb9"
+    },
+    {
+      "path": "pages/Home.tsx",
+      "sha256": "fc7430e9850c52c34043abdc97a0639bbdd76d367c51b7a4d93c636ca1378eef"
+    },
+    {
+      "path": "pages/InspirationDetail.tsx",
+      "sha256": "5ff37f61ee079aa4fae2ba8c77f371ee5420ec8d4f2a466161e47a1d350c8938"
+    },
+    {
+      "path": "pages/InspirationMap.tsx",
+      "sha256": "1f260fb65318a363c155b6bd5a8fb277cba81d7628e8f1426dbbfdea92ca3247"
+    },
+    {
+      "path": "pages/Journal.tsx",
+      "sha256": "d3e604e94d034659dff82fccd0df120b1eaf83341efd07207f1d6405175e839b"
+    },
+    {
+      "path": "pages/Quality.tsx",
+      "sha256": "74a94b181205f86449aebe5f886af12f4585b8b562615bd0c7778a28eded5bcb"
+    },
+    {
+      "path": "pages/Reveal.tsx",
+      "sha256": "bdf9959644d31787581921b0fb4151ff2b70cb8e26fe7998d469f1b91f776ced"
+    },
+    {
+      "path": "pages/Settings.tsx",
+      "sha256": "cce49f5fab4421ee67b99b5eff02d38482193634d1fe50109056e757a5159413"
+    },
+    {
+      "path": "platform/kimiSettings.ts",
+      "sha256": "0313635e7d95426e82bb33ab8a2a02e26e70e0447d0d2724edeacf3a5589722f"
+    },
+    {
+      "path": "platform/maps.ts",
+      "sha256": "e89d63e6d682b3d4841e28b387acb6d1f6177ffb26680adf29494bb035a5872f"
+    },
+    {
+      "path": "providers/ContourExtractor.ts",
+      "sha256": "b01576417aae3fd8845508f0f0c39d16f5cca6f6d669d6f0443c328a00d09654"
+    },
+    {
+      "path": "providers/KimiRevealProvider.test.ts",
+      "sha256": "7bcc012658c4b963635d7cb466ce2e88e5e09ce440d65c39ab0b60cf1e0ce404"
+    },
+    {
+      "path": "providers/KimiRevealProvider.ts",
+      "sha256": "7aa1645fb109db88dae920b1529dc89ecc7e38d824c2c4ff554b24055bbaf574"
+    },
+    {
+      "path": "providers/MockRevealProvider.test.ts",
+      "sha256": "3c1bc3a3bf7549ba5bbb9ba5fe07a9366ae2d7bf56f6770d5804adaef3ed8530"
+    },
+    {
+      "path": "providers/MockRevealProvider.ts",
+      "sha256": "65dd771b86d7bd12813786178dbba142d1ff9194ce650718d07ecf262e00fb5b"
+    },
+    {
+      "path": "providers/contourGeometry.test.ts",
+      "sha256": "0008603d6d4c1d1205048e67bad5253749786b6406b3fbb0334a31ecbeac3174"
+    },
+    {
+      "path": "providers/contourGeometry.ts",
+      "sha256": "c7be650cad6e1cd6e189e9338f7ef4b1e340d66dff4b426bf17172bcc8b83d4d"
+    },
+    {
+      "path": "providers/contourGuide.ts",
+      "sha256": "37aff54b05c710fcd00989f38383af8122186a317062b61ce5d04b79227aa312"
+    },
+    {
+      "path": "providers/guidedOutline.ts",
+      "sha256": "0cb7c405cc6f901cb64f8a33f26ab56040d11360afd18070648883d01883667d"
+    },
+    {
+      "path": "providers/revealSchema.ts",
+      "sha256": "f8d99f9d9918e114638f38c1656cab89a46d170307ae27861bdafc7339084d48"
+    },
+    {
+      "path": "store/InspirationRepository.ts",
+      "sha256": "f6c51eedebb04325e569d4f1f0622932e610bb63f8c4d1d3b65fa6e98a3fbfda"
+    },
+    {
+      "path": "store/quality.ts",
+      "sha256": "553297efba15cd97e8a7b5ea091bcc0fba58bd75cb2217d4ec872afa1eb77e5f"
+    },
+    {
+      "path": "store/qualityMerge.test.ts",
+      "sha256": "4a5a46a78ce066744aad6f0bc088b7d51e448fccabeeef61ad701d78ebd091ca"
+    },
+    {
+      "path": "store/qualityMerge.ts",
+      "sha256": "fb36962610c66a5dff6e82b4bff02692bab08e8b6167b47fb1d4546ab628f58f"
+    },
+    {
+      "path": "types/contours.ts",
+      "sha256": "fd78a265aa80f6b8c7b92850f35933496a2720c4023ac0b4b67261347b871210"
+    },
+    {
+      "path": "types/inspiration.ts",
+      "sha256": "96569232a1142ad4b51d93f8635244155f9bc295c6e7e2dc8f6afeb327cf84f1"
+    },
+    {
+      "path": "types/quality.ts",
+      "sha256": "42fcf18b9a36f0a3451da0240cefae294a4bf1dc1c43767526e5f56d0a14c863"
+    },
+    {
+      "path": "types/reveal.ts",
+      "sha256": "7df1cde1517cff400556f801eb310fa7ba5169451ff71131d4d1635ec1bfd81a"
+    },
+    {
+      "path": "utils/dates.ts",
+      "sha256": "72877cc5b44cbf142bb34f6457518904546b661849a3b7a61c2d3724ea30f380"
+    },
+    {
+      "path": "utils/mask.test.ts",
+      "sha256": "ce79879d47f3dcadfd1777f07d75cc627b3becaf03e2a1fb308ed2ab5c72eae0"
+    },
+    {
+      "path": "utils/mask.ts",
+      "sha256": "6733d7c640954429cebc02c7bbdabc2539d849d3b8618c788dd9ecf387c75983"
+    },
+    {
+      "path": "utils/selection.test.ts",
+      "sha256": "e63cb7946cc994e4375cc2cab4d73a5c21979b8bdac7e3ec6256adb799901711"
+    },
+    {
+      "path": "utils/selection.ts",
+      "sha256": "9d19bacf3d9e6eccd99f6491d6d30e4337f2f0b12025f969f66228f87918b934"
+    },
+    {
+      "path": "utils/upload.ts",
+      "sha256": "ef464a3af4886c373b94b68556410cc42a4fff1a0443328c7587d9321f26b610"
+    },
+    {
+      "path": "vite-env.d.ts",
+      "sha256": "cd739f8b9cc8c806367bc1127c9780a0ea79a0bc9d6d2c1c8d869b83b22f874e"
+    }
+  ]
+}

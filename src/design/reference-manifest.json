@@ -1,0 +1,268 @@
+{
+  "references": [
+    {
+      "file": "0CA04FAE-FD8B-4CEF-AC2E-8DF3A8DDEEAB.PNG",
+      "dimensions": [
+        941,
+        1672
+      ],
+      "sha256": "e00fdc53155386e43ebae53c07a9763420182dea66c6b19003d1af5a1cbe384b"
+    },
+    {
+      "file": "1188E21F-9887-42FE-B332-61A8EF159567.PNG",
+      "dimensions": [
+        941,
+        1672
+      ],
+      "sha256": "75f4272e376fc93cc5faa38f558e9a90c3c68116cfb5f664f2e32e2ee75f9052"
+    },
+    {
+      "file": "6C3F93FF-1C5F-447B-B426-536D96848DE0.PNG",
+      "dimensions": [
+        941,
+        1672
+      ],
+      "sha256": "6997f672807fe953e71079603bb4beac15372a8cc658d81236433db4de918d11"
+    },
+    {
+      "file": "8317A35A-1FAC-4CD0-8F20-F09AB98C057D.PNG",
+      "dimensions": [
+        941,
+        1672
+      ],
+      "sha256": "9134baff23c99b2057fa342a6c04e7ca72bf042aeedd70fe13df2727be53c53b"
+    },
+    {
+      "file": "9A4FA29F-CC62-4C0E-8173-FA0672C3A9FF.PNG",
+      "dimensions": [
+        941,
+        1672
+      ],
+      "sha256": "8e3efa65820aea7d264eaddc3089103b36992898b1a9e2276ea27112ac386b36"
+    },
+    {
+      "file": "B96DC58A-17B6-4505-95C3-10263206BC43.PNG",
+      "dimensions": [
+        941,
+        1672
+      ],
+      "sha256": "05bd03d197b3526d5cd8cb1b5f9a90d72e7a09dfa06bfbbcaeaed7f84187afce"
+    },
+    {
+      "file": "BA2C6A55-0817-4F5E-BCB6-26A8BDB8C5E2.PNG",
+      "dimensions": [
+        941,
+        1672
+      ],
+      "sha256": "b5d7fbe6f5ef0e096af02feb8419bbc00c1633fdbb4675d3a6def8bf99409cd9"
+    },
+    {
+      "file": "FC88E3A0-805B-4F5B-B9BF-9C5F7814A9E4.PNG",
+      "dimensions": [
+        941,
+        1672
+      ],
+      "sha256": "5927e2a75314f83567e1c4258c37bed847adf2c0e8b36cde466bd46fc3f86398"
+    }
+  ],
+  "assets": {
+    "paper": {
+      "reference": "8317A35A-1FAC-4CD0-8F20-F09AB98C057D.PNG",
+      "cropPixels": [
+        104,
+        180,
+        204,
+        281
+      ],
+      "size": [
+        100,
+        101
+      ]
+    },
+    "green": {
+      "reference": "8317A35A-1FAC-4CD0-8F20-F09AB98C057D.PNG",
+      "cropPixels": [
+        173,
+        1443,
+        243,
+        1498
+      ],
+      "size": [
+        70,
+        55
+      ]
+    },
+    "pink": {
+      "reference": "1188E21F-9887-42FE-B332-61A8EF159567.PNG",
+      "cropPixels": [
+        125,
+        290,
+        180,
+        317
+      ],
+      "size": [
+        55,
+        27
+      ]
+    },
+    "blue": {
+      "reference": "1188E21F-9887-42FE-B332-61A8EF159567.PNG",
+      "cropPixels": [
+        110,
+        502,
+        160,
+        549
+      ],
+      "size": [
+        50,
+        47
+      ]
+    },
+    "mint": {
+      "reference": "1188E21F-9887-42FE-B332-61A8EF159567.PNG",
+      "cropPixels": [
+        369,
+        500,
+        419,
+        546
+      ],
+      "size": [
+        50,
+        46
+      ]
+    },
+    "butter": {
+      "reference": "1188E21F-9887-42FE-B332-61A8EF159567.PNG",
+      "cropPixels": [
+        627,
+        500,
+        676,
+        544
+      ],
+      "size": [
+        49,
+        44
+      ]
+    },
+    "yellow": {
+      "reference": "6C3F93FF-1C5F-447B-B426-536D96848DE0.PNG",
+      "cropPixels": [
+        169,
+        1135,
+        215,
+        1192
+      ],
+      "size": [
+        46,
+        57
+      ]
+    },
+    "splash-green": {
+      "reference": "0CA04FAE-FD8B-4CEF-AC2E-8DF3A8DDEEAB.PNG",
+      "cropPixels": [
+        125,
+        182,
+        223,
+        279
+      ],
+      "size": [
+        98,
+        97
+      ]
+    },
+    "observer": {
+      "reference": "8317A35A-1FAC-4CD0-8F20-F09AB98C057D.PNG",
+      "cropPixels": [
+        174,
+        825,
+        543,
+        1292
+      ],
+      "size": [
+        369,
+        467
+      ]
+    },
+    "cat": {
+      "reference": "8317A35A-1FAC-4CD0-8F20-F09AB98C057D.PNG",
+      "cropPixels": [
+        541,
+        1181,
+        800,
+        1308
+      ],
+      "size": [
+        259,
+        127
+      ]
+    },
+    "flying-dog": {
+      "reference": "1188E21F-9887-42FE-B332-61A8EF159567.PNG",
+      "cropPixels": [
+        445,
+        334,
+        830,
+        455
+      ],
+      "size": [
+        385,
+        121
+      ],
+      "foregroundExtraction": "Pink backdrop made transparent; source RGB and foreground shape unchanged."
+    },
+    "camera": {
+      "reference": "6C3F93FF-1C5F-447B-B426-536D96848DE0.PNG",
+      "cropPixels": [
+        204,
+        627,
+        375,
+        773
+      ],
+      "size": [
+        171,
+        146
+      ]
+    },
+    "library": {
+      "reference": "6C3F93FF-1C5F-447B-B426-536D96848DE0.PNG",
+      "cropPixels": [
+        223,
+        903,
+        369,
+        1030
+      ],
+      "size": [
+        146,
+        127
+      ]
+    },
+    "upload": {
+      "reference": "6C3F93FF-1C5F-447B-B426-536D96848DE0.PNG",
+      "cropPixels": [
+        212,
+        1154,
+        373,
+        1330
+      ],
+      "size": [
+        161,
+        176
+      ]
+    }
+  },
+  "colors": {
+    "paper": "#fcf4e3",
+    "green": "#b4ca70",
+    "pink": "#fdd5d9",
+    "blue": "#e6eff6",
+    "mint": "#e6f1e1",
+    "butter": "#eef2dd",
+    "yellow": "#fde580",
+    "splash-green": "#afd075",
+    "ink": "#161815",
+    "muted": "#63655f",
+    "line": "#b8b6a8",
+    "leaf": "#88b748",
+    "coral": "#ef6757"
+  }
+}

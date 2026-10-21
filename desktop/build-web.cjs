@@ -1,0 +1,10 @@
+const path = require('node:path');
+const fs = require('node:fs');
+const root = path.resolve(__dirname, '..');
+const esbuildPath = require.resolve('esbuild', { paths: [path.dirname(require.resolve('vite', { paths: [root] }))] });
+const { buildSync } = require(esbuildPath);
+const out = process.argv[2];
+if (!out) throw new Error('Provide the WebAssets output directory');
+fs.mkdirSync(out, { recursive: true });
+buildSync({ absWorkingDir: root, entryPoints: ['src/main.tsx'], bundle: true, format: 'iife', outfile: path.join(out, 'app.js'), loader: { '.jpg': 'dataurl', '.png': 'file', '.woff2': 'file' }, assetNames: 'assets/[name]-[hash]', define: { 'process.env.NODE_ENV': '"production"' }, minify: true, target: ['safari16'], logLevel: 'info' });
+fs.writeFileSync(path.join(out, 'index.html'), '<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>灵感显影 Glimpse</title><link rel="stylesheet" href="./app.css"><script defer src="./app.js"></script></head><body><div id="root"></div></body></html>');
