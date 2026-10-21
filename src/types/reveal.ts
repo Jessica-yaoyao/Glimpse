@@ -1,4 +1,4 @@
-export type AppStage = 'home' | 'capture' | 'describe' | 'processing' | 'reveal' | 'settings' | 'journal' | 'detail' | 'map' | 'quality';
+export type AppStage = 'splash' | 'welcome' | 'observation' | 'source' | 'home' | 'capture' | 'describe' | 'processing' | 'reveal' | 'settings' | 'journal' | 'detail' | 'map' | 'quality';
 export interface MaskStroke { tool: 'brush' | 'eraser'; radius: number; points: [number, number][] }
 export interface SelectionMask { base: Selection | null; strokes: MaskStroke[] }
 /** Image-relative coordinates, always within 0..1. Never CSS pixels. */

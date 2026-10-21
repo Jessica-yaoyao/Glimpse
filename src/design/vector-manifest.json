@@ -1,0 +1,129 @@
+{
+  "version": "0.5.0",
+  "font": "Xiaolai (v0.4 retained, outlines)",
+  "frameVariants": {
+    "stamp": {
+      "asset": "frame-stamp.svg",
+      "viewBox": [
+        0,
+        0,
+        240,
+        192
+      ],
+      "photoSlot": [
+        37,
+        46,
+        163,
+        110
+      ],
+      "reference": "9A4FA29F"
+    },
+    "kraft": {
+      "asset": "frame-kraft.svg",
+      "viewBox": [
+        0,
+        0,
+        240,
+        192
+      ],
+      "photoSlot": [
+        65,
+        47,
+        116,
+        101
+      ],
+      "reference": "9A4FA29F"
+    },
+    "palette": {
+      "asset": "frame-palette.svg",
+      "viewBox": [
+        0,
+        0,
+        240,
+        192
+      ],
+      "photoSlot": [
+        59,
+        43,
+        148,
+        103
+      ],
+      "reference": "9A4FA29F"
+    }
+  },
+  "doodles": {
+    "nice-day": {
+      "reference": "B96DC58A",
+      "viewBox": [
+        0,
+        0,
+        115,
+        145
+      ]
+    },
+    "keep-going": {
+      "reference": "BA2C6A55",
+      "viewBox": [
+        0,
+        0,
+        130,
+        170
+      ]
+    }
+  },
+  "format": "SVG paths and glyph outlines; embedded original raster paper texture only",
+  "photoPolicy": "Transparent slot with separate original thumbnail; never overlay main editable/reveal photo",
+  "crops": {
+    "walking": [
+      "0CA04FAE-FD8B-4CEF-AC2E-8DF3A8DDEEAB.PNG",
+      [
+        155,
+        1080,
+        605,
+        1558
+      ]
+    ],
+    "chooser": [
+      "6C3F93FF-1C5F-447B-B426-536D96848DE0.PNG",
+      [
+        610,
+        1350,
+        810,
+        1598
+      ]
+    ],
+    "welcome": [
+      "8317A35A-1FAC-4CD0-8F20-F09AB98C057D.PNG",
+      [
+        174,
+        825,
+        800,
+        1308
+      ]
+    ]
+  },
+  "usedPages": {
+    "frame-stamp": "journal timeline",
+    "frame-kraft": "journal timeline",
+    "frame-palette": "journal timeline",
+    "nice-day": [
+      "describe",
+      "detail editor"
+    ],
+    "keep-going": [
+      "detail"
+    ]
+  },
+  "textureSources": {
+    "kraft": {
+      "reference": "9A4FA29F-CC62-4C0E-8173-FA0672C3A9FF.PNG",
+      "crop": [
+        522,
+        751,
+        542,
+        771
+      ]
+    },
+    "paperPinkGreen": "unchanged v0.4 original-reference texture crops"
+  }
+}

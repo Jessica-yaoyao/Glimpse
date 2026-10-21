@@ -1,0 +1,38 @@
+{
+  "walking": {
+    "type": "original bitmap with code-native SVG clip; not vector illustration",
+    "originalRGBPreserved": true,
+    "removedConnectedBackgroundPixels": 124552,
+    "pixels": 215100
+  },
+  "welcome": {
+    "type": "original bitmap with code-native SVG clip; not vector illustration",
+    "originalRGBPreserved": true,
+    "removedConnectedBackgroundPixels": 196297,
+    "pixels": 302358
+  },
+  "chooser": {
+    "type": "original bitmap with code-native SVG clip; not vector illustration",
+    "originalRGBPreserved": true,
+    "removedConnectedBackgroundPixels": 20716,
+    "pixels": 49600
+  },
+  "camera": {
+    "type": "original bitmap with code-native SVG clip; not vector illustration",
+    "originalRGBPreserved": true,
+    "removedConnectedBackgroundPixels": 14505,
+    "pixels": 24966
+  },
+  "library": {
+    "type": "original bitmap with code-native SVG clip; not vector illustration",
+    "originalRGBPreserved": true,
+    "removedConnectedBackgroundPixels": 4769,
+    "pixels": 18542
+  },
+  "upload": {
+    "type": "original bitmap with code-native SVG clip; not vector illustration",
+    "originalRGBPreserved": true,
+    "removedConnectedBackgroundPixels": 14491,
+    "pixels": 28336
+  }
+}

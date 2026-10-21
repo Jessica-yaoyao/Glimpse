@@ -6,10 +6,11 @@
 <key>CFBundleName</key><string>灵感显影 Glimpse</string>
 <key>CFBundleDisplayName</key><string>灵感显影 Glimpse</string>
 <key>CFBundlePackageType</key><string>APPL</string>
-<key>CFBundleShortVersionString</key><string>0.4.0</string>
-<key>CFBundleVersion</key><string>8</string>
+<key>CFBundleShortVersionString</key><string>0.5.0</string>
+<key>CFBundleVersion</key><string>9</string>
 <key>CFBundleIconFile</key><string>AppIcon</string>
 <key>LSMinimumSystemVersion</key><string>13.0</string>
 <key>NSHighResolutionCapable</key><true/>
 <key>NSHumanReadableCopyright</key><string>Glimpse · Kimi Code 实时显影</string>
+<key>NSCameraUsageDescription</key><string>仅在你点击拍照时使用摄像头；仅在点击拍摄后保存照片到本机灵感日志。</string>
 <key>NSLocationWhenInUseUsageDescription</key><string>仅在你点击使用当前位置时，为灵感记录标注当前所在地。</string><key>NSLocationUsageDescription</key><string>仅在你主动选择时记录当前位置。</string></dict></plist>

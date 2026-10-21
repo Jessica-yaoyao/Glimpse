@@ -4,15 +4,16 @@ import UniformTypeIdentifiers
 import ImageIO
 import MapKit
 
-final class AppDelegate: NSObject, NSApplicationDelegate, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHandler {
+final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHandler {
     var window: NSWindow!
     var webView: WKWebView!
     var checked = false
-    let testing = CommandLine.arguments.contains("--archive-check") || CommandLine.arguments.contains("--quality-ui-check") || CommandLine.arguments.contains("--photo-check") || CommandLine.arguments.contains("--acceptance-check") || CommandLine.arguments.contains("--self-test") || CommandLine.arguments.contains("--connection-check") || CommandLine.arguments.contains("--live-check")
+    let testing = CommandLine.arguments.contains("--presentation-check") || CommandLine.arguments.contains("--archive-check") || CommandLine.arguments.contains("--quality-ui-check") || CommandLine.arguments.contains("--photo-check") || CommandLine.arguments.contains("--acceptance-check") || CommandLine.arguments.contains("--self-test") || CommandLine.arguments.contains("--connection-check") || CommandLine.arguments.contains("--live-check")
     var testDirectory: String { ProcessInfo.processInfo.environment["GLIMPSE_QA_DIR"] ?? NSTemporaryDirectory() }
     var runtimeErrors: [String] = []
     var settingsBridge: KimiSettingsBridge!
     var revealBridge: KimiRevealBridge!
+    var cameraBridge:CameraBridge!
     var mapBridge: MapLocationBridge!
     var liveAuthorized = false
 
@@ -37,12 +38,16 @@ final class AppDelegate: NSObject, NSApplicationDelegate, WKNavigationDelegate, 
         let config = WKWebViewConfiguration()
         config.websiteDataStore = .nonPersistent()
         guard let folder = Bundle.main.resourceURL?.appendingPathComponent("WebAssets") else { return }
-        settingsBridge = KimiSettingsBridge(resourceFolder: folder, testDirectory: (CommandLine.arguments.contains("--self-test") || CommandLine.arguments.contains("--acceptance-check") || CommandLine.arguments.contains("--photo-check") || CommandLine.arguments.contains("--quality-ui-check")) ? URL(fileURLWithPath: testDirectory).appendingPathComponent("settings-fixture") : nil)
+        settingsBridge = KimiSettingsBridge(resourceFolder: folder, testDirectory: (CommandLine.arguments.contains("--presentation-check") || CommandLine.arguments.contains("--self-test") || CommandLine.arguments.contains("--acceptance-check") || CommandLine.arguments.contains("--photo-check") || CommandLine.arguments.contains("--quality-ui-check")) ? URL(fileURLWithPath: testDirectory).appendingPathComponent("settings-fixture") : nil)
         if CommandLine.arguments.contains("--live-check"), CommandLine.arguments.contains("--qa-key-stdin"), let key = readLine(), !key.isEmpty { settingsBridge.useTestCredential(key) }
         config.userContentController.addScriptMessageHandler(settingsBridge, contentWorld: .page, name: "glimpseSettings")
         revealBridge = KimiRevealBridge(settings: settingsBridge)
         config.userContentController.addScriptMessageHandler(revealBridge, contentWorld: .page, name: "glimpseReveal")
         config.userContentController.addScriptMessageHandler(ContourBridge(resourceFolder: folder), contentWorld: .page, name: "glimpseContours")
+        cameraBridge=CameraBridge(folder:folder)
+        config.userContentController.addScriptMessageHandler(cameraBridge,contentWorld:.page,name:"glimpseCamera")
+        config.userContentController.addScriptMessageHandler(PresentationBridge(folder:folder,directory:settingsBridge.directory),contentWorld:.page,name:"glimpsePresentation")
+        if testing && !CommandLine.arguments.contains("--presentation-check") { config.userContentController.addUserScript(WKUserScript(source:"window.glimpseSkipIntro=true;",injectionTime:.atDocumentStart,forMainFrameOnly:true)) }
         let store = InspirationStore(directory: settingsBridge.directory)
         mapBridge = MapLocationBridge(store:store,resourceFolder:folder)
         config.userContentController.addScriptMessageHandler(mapBridge, contentWorld:.page,name:"glimpseMap")
@@ -58,7 +63,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate, WKNavigationDelegate, 
         webView.uiDelegate = self
         webView.setValue(false, forKey: "drawsBackground")
         window = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 480, height: 850), styleMask: [.titled, .closable, .miniaturizable, .resizable], backing: .buffered, defer: false)
-        window.title = "灵感显影 Glimpse · 0.4.0"
+        window.title = "灵感显影 Glimpse · 0.5.0"
+        window.delegate=self
         window.minSize = NSSize(width: 375, height: 620)
         window.backgroundColor = NSColor(calibratedRed: 252/255, green: 244/255, blue: 227/255, alpha: 1)
         window.contentView = webView
@@ -70,6 +76,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, WKNavigationDelegate, 
     }
     func startTestWatchdog(seconds: Double) { DispatchQueue.main.asyncAfter(deadline: .now() + seconds) { if !self.checked { self.finishTest(["passed": false, "error": "Native WebKit test timed out", "runtimeErrors": self.runtimeErrors]) } } }
 
+    func windowWillClose(_ notification:Notification) { if let closing=notification.object as? NSWindow, closing===window { cameraBridge.camera?.cancelCapture() } }
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool { true }
 
     func webView(_ webView: WKWebView, runOpenPanelWith parameters: WKOpenPanelParameters, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping ([URL]?) -> Void) {
@@ -106,7 +113,14 @@ final class AppDelegate: NSObject, NSApplicationDelegate, WKNavigationDelegate, 
             return
         }
         let settingsReopen = CommandLine.arguments.contains("--settings-reopen")
-        let script = CommandLine.arguments.contains("--archive-check") ? #"""
+        let script = CommandLine.arguments.contains("--presentation-check") ? #"""
+        const delay=ms=>new Promise(r=>setTimeout(r,ms)),wait=async fn=>{for(let i=0;i<200;i++){if(fn())return;await delay(100)}throw Error('Presentation UI timeout')},checks=[],check=(ok,n)=>{if(!ok)throw Error(n);checks.push(n)},button=label=>[...document.querySelectorAll('button')].find(b=>b.textContent.includes(label)),bridge=window.webkit.messageHandlers.glimpsePresentation;
+        const initial=await bridge.postMessage({action:'read'});
+        if(initial.complete){await wait(()=>document.querySelector('.dashboard'));check(!document.querySelector('.launch'),'Native completion survives process restart');}
+        else{await wait(()=>document.querySelector('.launch-brand'));check(!!document.querySelector('.launch-walking img'),'Native first launch shows brand artwork');document.querySelector('[aria-label="继续查看观察引导"]').click();await wait(()=>document.querySelector('.launch-welcome'));button('开始使用').click();await wait(()=>document.querySelector('.dashboard'));check((await bridge.postMessage({action:'read'})).complete,'Native first-launch completion is persisted');}
+        const camera=window.webkit.messageHandlers.glimpseCamera;let rejected=false;try{await camera.postMessage({action:'capture',requestId:'invalid'})}catch{rejected=true}check(rejected,'Malformed camera request is rejected before permission access');check(await camera.postMessage({action:'cancel',requestId:crypto.randomUUID()}),'Idle camera cancellation is harmless');
+        document.querySelector('[aria-label="打开显影设置"]').click();await wait(()=>document.querySelector('.replay-intro'));button('重看开屏').click();await wait(()=>document.querySelector('.launch-brand'));button('跳过').click();await wait(()=>document.querySelector('.dashboard'));check((await bridge.postMessage({action:'read'})).complete,'Replaying launch preserves completion preference');return {passed:true,checks,protocol:location.protocol,initialComplete:initial.complete,physicalCameraTested:false};
+        """# : CommandLine.arguments.contains("--archive-check") ? #"""
         const delay=ms=>new Promise(r=>setTimeout(r,ms)),wait=async fn=>{for(let i=0;i<300;i++){if(fn())return;await delay(100)}throw new Error('Archive UI timeout')},button=label=>[...document.querySelectorAll('button')].find(b=>b.textContent.includes(label)),checks=[],check=(ok,label)=>{if(!ok)throw new Error(label);checks.push(label)};
         await wait(()=>document.querySelector('.home'));const recordsBridge=window.webkit.messageHandlers.glimpseRecords,revealBridge=window.webkit.messageHandlers.glimpseReveal,before=await revealBridge.postMessage({action:'usage'}),suite=await recordsBridge.postMessage({action:'qualityRead'}),records=await recordsBridge.postMessage({action:'list'});check(suite.tasks.length===20,'Real fixed 20-task suite survives moving the application');check(new Set(suite.tasks.map(t=>t.recordId)).size===10&&suite.tasks.every(t=>records.some(r=>r.id===t.recordId&&r.originalSha256===t.originalSha256)),'All ten prepared original records survive the moved app');check(document.querySelector('.home-footnote').textContent.includes('实时显影'),'Moved app still uses live Kimi Provider');
         button('日志').click();await wait(()=>document.querySelector('.journal-toolbar'));button('时间轴').click();await wait(()=>document.querySelectorAll('.journal-card').length===records.length);const id=suite.tasks[0].recordId;[...document.querySelectorAll('.journal-card')].find(b=>b.dataset.recordId===id).click();await wait(()=>document.querySelector('.detail'));check(document.querySelector('.detail').dataset.recordId===id,'Moved app opens the exact saved record');button('查看原照片').click();await wait(()=>document.querySelector('.original-view img'));await document.querySelector('.original-view img').decode();check(document.querySelector('.original-view img').naturalWidth>0,'Original bytes are integrity-checked and viewable after app move');button('关闭原照片').click();button('glimpse').click();await wait(()=>document.querySelector('.home'));document.querySelector('[aria-label="打开显影设置"]').click();await wait(()=>button('质量验收'));button('质量验收').click();await wait(()=>document.querySelectorAll('.quality-task').length===20);check(document.querySelectorAll('.quality-task').length===20,'Real user task suite is accessible from packaged UI');const after=await revealBridge.postMessage({action:'usage'});check(['knownTokens','reservedTokens','unknownRequests','remainingTokens'].every(key=>before[key]===after[key]),'Viewing packaged records and tasks sends no model request');return {passed:true,checks,protocol:location.protocol,qualityStatuses:suite.tasks.map(t=>t.status),usage:after};
@@ -139,7 +153,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, WKNavigationDelegate, 
         await wait(()=>document.querySelector('.home'));
         check(document.querySelector('.home-footnote').textContent.includes('实时显影'), 'Native app selects the live Kimi Provider by default');
         if(photoBytes){const file=new File([Uint8Array.from(atob(photoBytes),c=>c.charCodeAt(0))],'live-photo.JPG',{type:'image/jpeg'}),transfer=new DataTransfer();transfer.items.add(file);document.querySelector('.file-input').files=transfer.files;document.querySelector('.file-input').dispatchEvent(new Event('change',{bubbles:true}));await wait(()=>button('选择整张'));button('选择整张').click();await delay(100);button('橡皮擦').click();await delay(100);const surface=document.querySelector('.selection-surface'),r=surface.getBoundingClientRect(),point={clientX:r.x+r.width*.94,clientY:r.y+r.height*.94,pointerId:601,isPrimary:true,button:0,bubbles:true};surface.setPointerCapture=()=>{};surface.releasePointerCapture=()=>{};surface.hasPointerCapture=()=>false;surface.dispatchEvent(new PointerEvent('pointerdown',point));surface.dispatchEvent(new PointerEvent('pointerup',point));await delay(100);check(!!document.querySelector('.mask-preview'),'Real uploaded photo uses a fine selection mask');}
-        else{button('先试一个例子').click();await wait(()=>button('选取主体'));button('选取主体').click();await delay(100);}
+        else{button('先试一个例子').click();await wait(()=>document.querySelector('.sample-card'));button('先试一个例子').click();await wait(()=>button('选取主体'));button('选取主体').click();await delay(100);}
         button('就是这里').click();await wait(()=>document.querySelector('textarea'));
         const original=document.querySelector('.preview-photo img').src;
         const input=document.querySelector('textarea');
@@ -213,10 +227,10 @@ final class AppDelegate: NSObject, NSApplicationDelegate, WKNavigationDelegate, 
         check(rejected, 'Native bridge rejects unsupported models');
         document.querySelector('[aria-label="返回上一步"]').click();
         await wait(()=>document.querySelector('.home'));
-        const img = document.querySelector('.home-photo img'); await img.decode();
+        const img = document.querySelector('.recent-card img'); await img.decode();
         check(img.naturalWidth > 0, 'Bundled sample image decodes offline');
         check(location.protocol === 'file:', 'Runs directly from app resources without a server');
-        button('先试一个例子').click();
+        button('先试一个例子').click();await wait(()=>document.querySelector('.sample-card'));button('先试一个例子').click();
         await wait(()=>button('选取主体'));
         button('选取主体').click(); await delay(100);
         button('就是这里').click(); await wait(()=>document.querySelector('textarea'));

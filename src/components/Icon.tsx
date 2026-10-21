@@ -1,5 +1,6 @@
-export function Icon({ name, size = 20 }: { name: 'arrow' | 'back' | 'plus' | 'spark' | 'crop' | 'reset' | 'check' | 'home' | 'journal' | 'map'; size?: number }) {
+export function Icon({ name, size = 20 }: { name: 'arrow' | 'back' | 'plus' | 'spark' | 'crop' | 'reset' | 'check' | 'home' | 'journal' | 'map' | 'search'; size?: number }) {
   const paths = {
+    search: 'M17 17 22 22M19 10a8.1 8.1 0 1 1-16.2 0 8.1 8.1 0 0 1 16.2 0',
     arrow: 'M3.8 12.4 19.6 12m-6.2-6.2 6.2 6.2-6.5 6.2', back: 'M15.7 3.2 6.7 12l9.4 8.7',
     plus: 'm12.3 4.6-.4 15M4.6 12.4l15-.4', spark: 'm12 2.8 3 6.1 6.8.8-5.1 4.7 1.5 6.5-6.2-3.3-6 3.4 1.4-6.8-5-4.3 6.6-1L12 2.8Z',
     crop: 'M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5',

@@ -17,8 +17,8 @@
 检出某一版本：
 
 ```bash
-git switch release/0.4.0
-# 或 git checkout v0.4.0
+git switch release/0.5.0
+# 或 git checkout v0.5.0
 ```
 
 分支内容不含用户照片、真实评分任务、Keychain 数据、Token 账本、开发机工作路径或凭据。视觉截图使用示例／隔离记录，模型能力边界见 ACCEPTANCE.md。

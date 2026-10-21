@@ -1,8 +1,8 @@
 {
-  "version": "0.4.0",
+  "version": "0.5.0",
   "importedAt": "2026-10-21",
   "originalDeliveryDate": "2026-10-01",
-  "sourceRecovery": "complete pre-v0.5 snapshot",
+  "sourceRecovery": "pre-v0.5.1 src plus saved native entry/metadata and unchanged native modules",
   "repositoryPortabilityChanges": [
     "desktop build directory uses .build/desktop",
     "default native output uses .build/macos",
@@ -10,13 +10,13 @@
     "self-contained README and documentation"
   ],
   "macOSArchive": {
-    "filename": "Glimpse-v0.4.0-macOS.zip",
-    "sha256": "247482a7a1f2f5545637dffe9752d53cf1cbb47b3b272dc343ddf0282f0a3c86"
+    "filename": "Glimpse-v0.5.0-macOS.zip",
+    "sha256": "c4b1865e89f2ebd9a004270203d83529d2e4bce33946918a2c26515d4eb72e4d"
   },
   "sourceFiles": [
     {
       "path": "App.tsx",
-      "sha256": "a7ee8d295a219db8bb96a11f2eeb99f7db74d00184c26164061646bed0ee82ce"
+      "sha256": "bf7c453a00a9e8ca62f9798529e6577888eb9067e3cb555b611c9b9e4b1835c1"
     },
     {
       "path": "assets/samples/fox.jpg",
@@ -28,7 +28,7 @@
     },
     {
       "path": "components/Icon.tsx",
-      "sha256": "6a57266d44e52f84bc13fda2926700aabd73f6bbb8daeb79fab8bfb8b4f8b3c4"
+      "sha256": "6b9ea772181dac19d3cee2c8ab9ef45640c59ae8d5bc5bb13a4c3c8267542359"
     },
     {
       "path": "components/LoadingSequence.tsx",
@@ -59,8 +59,12 @@
       "sha256": "6e3b5b3c575a644d2d4ce8b96d5cb6d37cbcf26dfe5c7f78bf9b6842f2b650cd"
     },
     {
+      "path": "design/PaperPhoto.tsx",
+      "sha256": "5b5d74eb0b16588307fe0292c856d82e712a122d950db14ade52e43e5f5ca1a1"
+    },
+    {
       "path": "design/ReferenceArt.tsx",
-      "sha256": "388cb4e1a08e1dce6fe179a73b8e205fd3d80a3465b6c02d48591d691f86970f"
+      "sha256": "79fe637e95db664e15d51a44e4004d443e42fd07721f1fc796ce0dd6053065c0"
     },
     {
       "path": "design/assets/Xiaolai-Regular.woff2",
@@ -83,12 +87,20 @@
       "sha256": "62b83cd1172e4fc15842d73a6437305e84a92ccccd484a82d1e118eebf3c58e8"
     },
     {
+      "path": "design/assets/chooser.png",
+      "sha256": "d908fc487c0d4a681bb2dcfdd76f47eb56cd1ba90b48cfcf2196b92e1a74ff81"
+    },
+    {
       "path": "design/assets/flying-dog.png",
       "sha256": "66f4bfe741fb33fe89246e67ce17e1504c000da7dd47277cefda2129bdcbe649"
     },
     {
       "path": "design/assets/green.png",
       "sha256": "e41c62b4c00838e66fe7a6ba7abfe3ffe6e29eb05e36cf446ab15329ec147eca"
+    },
+    {
+      "path": "design/assets/kraft.png",
+      "sha256": "6d465317a7209284b3eaf3d3a8e60fd44ad759bc55573bc8a7fc42b66261f0a3"
     },
     {
       "path": "design/assets/library.png",
@@ -119,8 +131,20 @@
       "sha256": "6423e7d1cab9112f2ed7dcdb5981807abc1f1e7b86a26719b9015cfcedc19ab7"
     },
     {
+      "path": "design/assets/walking.png",
+      "sha256": "5aef5327725ab878eb9c287abe2a229c0ab1c6d49fd47cd023c112447a6e95e1"
+    },
+    {
+      "path": "design/assets/welcome.png",
+      "sha256": "d15fd7e343af39621cd4a42eabbdf12fa77fd0f004fe0a265d6a793048a4fe06"
+    },
+    {
       "path": "design/assets/yellow.png",
       "sha256": "10c351f8a8c48016b187dbf42a751a984fd72d6d2f4bb5cfb2da5b3a76a42560"
+    },
+    {
+      "path": "design/clip-manifest.json",
+      "sha256": "16f113e3ac37744a50fc34d891af40168c9c947e579f7101ad9833d7236272d2"
     },
     {
       "path": "design/reference-manifest.json",
@@ -131,8 +155,56 @@
       "sha256": "ecf7ed1ec6799d66ac45519928ee85d76a644270d6fe43ef972e0c5646c4b183"
     },
     {
+      "path": "design/vector-manifest.json",
+      "sha256": "e44ec2ad2620ae85680f87d49664e2985cbf4d48278af053bda732894a762cf7"
+    },
+    {
+      "path": "design/vectors/frame-kraft.svg",
+      "sha256": "f678d47de66bf1fb1fc53cb683b570c99ece53bef8e41a8df5d4626214969e5a"
+    },
+    {
+      "path": "design/vectors/frame-palette.svg",
+      "sha256": "281914928dd8df176425d1c388b3615afd54251cfc8542b77ea92860de5f6d0c"
+    },
+    {
+      "path": "design/vectors/frame-stamp.svg",
+      "sha256": "f9c22eeb3b649b91841d575b003fc6cc2b0c65c0503e025c00585896c2e763f1"
+    },
+    {
+      "path": "design/vectors/keep-going.svg",
+      "sha256": "87a258158d83db8a2ed14d31a552fdb980627425dbd8ee2ffdc37516137cc1aa"
+    },
+    {
+      "path": "design/vectors/nice-day.svg",
+      "sha256": "e76b65e5763d28424367e0ebf5916cc329cee91277e5dd9c18f4357dedafeef6"
+    },
+    {
+      "path": "design/vectors/reference-camera.svg",
+      "sha256": "f08b59ee8ca8fd826968d241c4f33f91a8ce53e3e380a7a3dd60da6ac5fd4054"
+    },
+    {
+      "path": "design/vectors/reference-chooser.svg",
+      "sha256": "2e88af0538b6b9989f1df5adb5a810c1f4dca356890376195018b6a5cffc8556"
+    },
+    {
+      "path": "design/vectors/reference-library.svg",
+      "sha256": "87c260d22f646dfdd588ef01013dd966267ea503afd0e9bd98a1d74eb0d4fba8"
+    },
+    {
+      "path": "design/vectors/reference-upload.svg",
+      "sha256": "1b2470ff4a0a494b8cc722129b88bef2c150d6e36e73f74dcf88ce36eb98736a"
+    },
+    {
+      "path": "design/vectors/reference-walking.svg",
+      "sha256": "c7dfb7d7ba7b40fa52e883c122165a47c295b48a924e1e37b618288e21989585"
+    },
+    {
+      "path": "design/vectors/reference-welcome.svg",
+      "sha256": "233cddcfea792f6b0dac84c09ed68384846054bd3a1215baf2250f34cedf4f9c"
+    },
+    {
       "path": "index.css",
-      "sha256": "234c5ddd72f9d06521d81165467133ba97aeab996ac50db8a7902e840a9f4850"
+      "sha256": "9b7921a697827e5c3d318367f2fa0a4f0961bda80b93cb73400b5a02ee48ff96"
     },
     {
       "path": "main.tsx",
@@ -144,15 +216,15 @@
     },
     {
       "path": "pages/Describe.tsx",
-      "sha256": "2103b7cf7bda743dc674eef29d2bb234dd9ab83f5d66b3d5754ff09b56bcadb9"
+      "sha256": "3c556d9ef9e4bd066694e45ff7514ae0b0480adb8bd2410bdf1470dbf64d461a"
     },
     {
       "path": "pages/Home.tsx",
-      "sha256": "fc7430e9850c52c34043abdc97a0639bbdd76d367c51b7a4d93c636ca1378eef"
+      "sha256": "585cea560305d97b489b3f0a4c287119652816af0d036287cbbbb55204b54cd0"
     },
     {
       "path": "pages/InspirationDetail.tsx",
-      "sha256": "5ff37f61ee079aa4fae2ba8c77f371ee5420ec8d4f2a466161e47a1d350c8938"
+      "sha256": "92c753ef60d57d4a6958025de4ea8d71dd90efa2627316bffae073d276640c15"
     },
     {
       "path": "pages/InspirationMap.tsx",
@@ -160,7 +232,19 @@
     },
     {
       "path": "pages/Journal.tsx",
-      "sha256": "d3e604e94d034659dff82fccd0df120b1eaf83341efd07207f1d6405175e839b"
+      "sha256": "99881caad4751d5eb0f55e5d4c2d5047fd3a94ad55251d6c28d310a895acae74"
+    },
+    {
+      "path": "pages/Launch.tsx",
+      "sha256": "df2d5d3b8783ca9a493549acf81978e7e4e2fa747bc66c79505e02e52ea51128"
+    },
+    {
+      "path": "pages/Observation.tsx",
+      "sha256": "0f77a85b935f4439665c8085ad8c9b6fde5ad2162425023cb50c7a057485fc15"
+    },
+    {
+      "path": "pages/PhotoSource.tsx",
+      "sha256": "b8a02b6abf2acfebac7ee25307863ede636b53c748cbcf754d447412ff3a6d65"
     },
     {
       "path": "pages/Quality.tsx",
@@ -181,6 +265,10 @@
     {
       "path": "platform/maps.ts",
       "sha256": "e89d63e6d682b3d4841e28b387acb6d1f6177ffb26680adf29494bb035a5872f"
+    },
+    {
+      "path": "platform/presentation.ts",
+      "sha256": "7d1b0950961ae95f2cf3f763aed269ff0fe528b0a519cbd0c48711db5f3cbc16"
     },
     {
       "path": "providers/ContourExtractor.ts",
@@ -252,7 +340,7 @@
     },
     {
       "path": "types/reveal.ts",
-      "sha256": "7df1cde1517cff400556f801eb310fa7ba5169451ff71131d4d1635ec1bfd81a"
+      "sha256": "2fac3c3c2bedc976c3d1341fa4a66ab7755c678b52e996b7ded59ff04f00fa1a"
     },
     {
       "path": "utils/dates.ts",
@@ -280,7 +368,7 @@
     },
     {
       "path": "vite-env.d.ts",
-      "sha256": "cd739f8b9cc8c806367bc1127c9780a0ea79a0bc9d6d2c1c8d869b83b22f874e"
+      "sha256": "f0a3d0b229b7a6d4ff461dace47fbd5ca6b6c47b3e35b6baadac0aa5fdaf8992"
     }
   ]
 }
