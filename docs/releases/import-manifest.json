@@ -1,8 +1,8 @@
 {
-  "version": "0.5.0",
+  "version": "0.5.1",
   "importedAt": "2026-10-21",
   "originalDeliveryDate": "2026-10-01",
-  "sourceRecovery": "pre-v0.5.1 src plus saved native entry/metadata and unchanged native modules",
+  "sourceRecovery": "latest user-authorized source",
   "repositoryPortabilityChanges": [
     "desktop build directory uses .build/desktop",
     "default native output uses .build/macos",
@@ -10,8 +10,8 @@
     "self-contained README and documentation"
   ],
   "macOSArchive": {
-    "filename": "Glimpse-v0.5.0-macOS.zip",
-    "sha256": "c4b1865e89f2ebd9a004270203d83529d2e4bce33946918a2c26515d4eb72e4d"
+    "filename": "Glimpse-v0.5.1-macOS.zip",
+    "sha256": "ad77425edf99e6e62a23b3d8bca29cd0351ee195301a018dd98e3e650886e50f"
   },
   "sourceFiles": [
     {
@@ -48,7 +48,7 @@
     },
     {
       "path": "components/SelectionEditor.tsx",
-      "sha256": "82bfdfb728d863e3ba8824dd05577c6a84dd06f042dcc2b3ea5e26e5f3454609"
+      "sha256": "45e8a09a1bd3acece521ebf9137db3dba22bb541f04cf20221da318f70754609"
     },
     {
       "path": "data/fox.ts",
@@ -143,6 +143,10 @@
       "sha256": "10c351f8a8c48016b187dbf42a751a984fd72d6d2f4bb5cfb2da5b3a76a42560"
     },
     {
+      "path": "design/chalkSelection.ts",
+      "sha256": "e080bff26be9d77c503444868dc0c449f70449809107b5513d50f735ee3e3fd2"
+    },
+    {
       "path": "design/clip-manifest.json",
       "sha256": "16f113e3ac37744a50fc34d891af40168c9c947e579f7101ad9833d7236272d2"
     },
@@ -204,7 +208,7 @@
     },
     {
       "path": "index.css",
-      "sha256": "9b7921a697827e5c3d318367f2fa0a4f0961bda80b93cb73400b5a02ee48ff96"
+      "sha256": "9ac6991f2a2865de881843a3ea58ec2f1149fbbebbc2bc2b1a01336b8c78f618"
     },
     {
       "path": "main.tsx",
@@ -220,7 +224,7 @@
     },
     {
       "path": "pages/Home.tsx",
-      "sha256": "585cea560305d97b489b3f0a4c287119652816af0d036287cbbbb55204b54cd0"
+      "sha256": "fe26fcfc5156d0b89ba85868a563ec8ccdbac4d093edaf1437f1750bcf609333"
     },
     {
       "path": "pages/InspirationDetail.tsx",
@@ -240,7 +244,7 @@
     },
     {
       "path": "pages/Observation.tsx",
-      "sha256": "0f77a85b935f4439665c8085ad8c9b6fde5ad2162425023cb50c7a057485fc15"
+      "sha256": "8c48545ecbb8207ac527a8b09cbc4b36b5fc17126a15b8a84ff62817af27cb6f"
     },
     {
       "path": "pages/PhotoSource.tsx",

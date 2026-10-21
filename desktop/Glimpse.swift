@@ -63,7 +63,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, WKNa
         webView.uiDelegate = self
         webView.setValue(false, forKey: "drawsBackground")
         window = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 480, height: 850), styleMask: [.titled, .closable, .miniaturizable, .resizable], backing: .buffered, defer: false)
-        window.title = "灵感显影 Glimpse · 0.5.0"
+        window.title = "灵感显影 Glimpse · 0.5.1"
         window.delegate=self
         window.minSize = NSSize(width: 375, height: 620)
         window.backgroundColor = NSColor(calibratedRed: 252/255, green: 244/255, blue: 227/255, alpha: 1)
@@ -153,7 +153,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, WKNa
         await wait(()=>document.querySelector('.home'));
         check(document.querySelector('.home-footnote').textContent.includes('实时显影'), 'Native app selects the live Kimi Provider by default');
         if(photoBytes){const file=new File([Uint8Array.from(atob(photoBytes),c=>c.charCodeAt(0))],'live-photo.JPG',{type:'image/jpeg'}),transfer=new DataTransfer();transfer.items.add(file);document.querySelector('.file-input').files=transfer.files;document.querySelector('.file-input').dispatchEvent(new Event('change',{bubbles:true}));await wait(()=>button('选择整张'));button('选择整张').click();await delay(100);button('橡皮擦').click();await delay(100);const surface=document.querySelector('.selection-surface'),r=surface.getBoundingClientRect(),point={clientX:r.x+r.width*.94,clientY:r.y+r.height*.94,pointerId:601,isPrimary:true,button:0,bubbles:true};surface.setPointerCapture=()=>{};surface.releasePointerCapture=()=>{};surface.hasPointerCapture=()=>false;surface.dispatchEvent(new PointerEvent('pointerdown',point));surface.dispatchEvent(new PointerEvent('pointerup',point));await delay(100);check(!!document.querySelector('.mask-preview'),'Real uploaded photo uses a fine selection mask');}
-        else{button('先试一个例子').click();await wait(()=>document.querySelector('.sample-card'));button('先试一个例子').click();await wait(()=>button('选取主体'));button('选取主体').click();await delay(100);}
+        else{button('先试一下').click();await wait(()=>document.querySelector('.sample-card'));button('先试一下').click();await wait(()=>button('选取主体'));button('选取主体').click();await delay(100);}
         button('就是这里').click();await wait(()=>document.querySelector('textarea'));
         const original=document.querySelector('.preview-photo img').src;
         const input=document.querySelector('textarea');
@@ -230,7 +230,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, WKNa
         const img = document.querySelector('.recent-card img'); await img.decode();
         check(img.naturalWidth > 0, 'Bundled sample image decodes offline');
         check(location.protocol === 'file:', 'Runs directly from app resources without a server');
-        button('先试一个例子').click();await wait(()=>document.querySelector('.sample-card'));button('先试一个例子').click();
+        button('先试一下').click();await wait(()=>document.querySelector('.sample-card'));button('先试一下').click();
         await wait(()=>button('选取主体'));
         button('选取主体').click(); await delay(100);
         button('就是这里').click(); await wait(()=>document.querySelector('textarea'));

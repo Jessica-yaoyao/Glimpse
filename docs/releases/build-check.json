@@ -1,5 +1,5 @@
 {
-  "version": "0.5.0",
+  "version": "0.5.1",
   "passed": true,
   "checks": [
     "typescript",
@@ -9,6 +9,6 @@
   "coreTests": 31,
   "readmeImages": 7,
   "localLinksResolved": true,
-  "sourceFilesInspected": 80,
+  "sourceFilesInspected": 83,
   "realModelRequests": 0
 }

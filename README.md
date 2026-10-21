@@ -2,7 +2,7 @@
 
 <p align="center"><img src="docs/images/icon.png" width="112" alt="灵感显影应用图标"></p>
 <p align="center">把你一瞬间「看错」的东西，描出来。<br>拍下日常、指出联想的位置，用原图上的 SVG 笔触留住灵感。</p>
-<p align="center"><a href="https://github.com/Jessica-yaoyao/Glimpse/releases/tag/v0.5.0">v0.5.0 下载</a> · <a href="#界面预览">界面预览</a> · <a href="CHANGELOG.md">迭代记录</a> · <a href="docs/VERSION_HISTORY.md">版本分支</a></p>
+<p align="center"><a href="https://github.com/Jessica-yaoyao/Glimpse/releases/tag/v0.5.1">v0.5.1 下载</a> · <a href="#界面预览">界面预览</a> · <a href="CHANGELOG.md">迭代记录</a> · <a href="docs/VERSION_HISTORY.md">版本分支</a></p>
 
 Glimpse 是一款 Mobile-first 的视觉联想记录工具。例如，你把路面上的塑料袋看成蜷着的狐狸，就可以选择照片中的区域、描述这个联想，再观看轮廓沿原图显现，并把它保存为带时间和地点的灵感日志。
 
@@ -10,15 +10,16 @@ Glimpse 是一款 Mobile-first 的视觉联想记录工具。例如，你把路�
 
 | 平台 | 下载 | 使用说明 |
 | --- | --- | --- |
-| macOS 13+ · Apple Silicon / Intel | [下载 v0.5.0 ZIP](https://github.com/Jessica-yaoyao/Glimpse/releases/download/v0.5.0/Glimpse-v0.5.0-macOS.zip) | 解压后打开 .app；实时识别需要自己的 Kimi Code Key |
+| macOS 13+ · Apple Silicon / Intel | [下载 v0.5.1 ZIP](https://github.com/Jessica-yaoyao/Glimpse/releases/download/v0.5.1/Glimpse-v0.5.1-macOS.zip) | 解压后打开 .app；实时识别需要自己的 Kimi Code Key |
+| 网页 / 小红书 STATIC_SITE | [下载纯静态 ZIP](https://github.com/Jessica-yaoyao/Glimpse/releases/download/v0.5.1/Glimpse-v0.5.1-STATIC_SITE.zip) | 解压根目录 index.html；Mock 演示；无需后端 |
 
-[全部版本](https://github.com/Jessica-yaoyao/Glimpse/releases) · [SHA-256 校验清单](https://github.com/Jessica-yaoyao/Glimpse/releases/download/v0.5.0/SHA256SUMS.txt) · [版本历史](docs/VERSION_HISTORY.md)
+[全部版本](https://github.com/Jessica-yaoyao/Glimpse/releases) · [SHA-256 校验清单](https://github.com/Jessica-yaoyao/Glimpse/releases/download/v0.5.1/SHA256SUMS.txt) · [版本历史](docs/VERSION_HISTORY.md)
 
 macOS 分发包使用本机测试签名，未进行 Apple Developer ID 公证。下载后可先核对校验清单；首次访问相机、定位或钥匙串时由使用者授权。
 
 ## 界面预览
 
-截图使用示例照片或隔离 UI 数据。显影截图为明确标注的 Mock 演示；它展示交互，不代表真实模型的识别准确率。
+截图使用示例照片或隔离 UI 数据。显影截图为明确标注的 Mock 演示；它展示交互，不代表真实模型的识别准确率。描述、显影、时间轴和月历页面复用 v0.5.0 中未变更的界面截图。
 
 <table>
   <tr><td width="33%"><img src="docs/images/home.png" width="280" alt="发现首页"></td><td width="33%"><img src="docs/images/selection.png" width="280" alt="照片精细选区"></td><td width="33%"><img src="docs/images/describe.png" width="280" alt="描述视觉联想"></td></tr>
@@ -32,7 +33,7 @@ macOS 分发包使用本机测试签名，未进行 Apple Developer ID 公证。
 - 首次开屏和记录首页：真实总数、本月记录、连续天数、搜索与最近照片；可从设置重看开屏。
 - 照片来源：相册、拖入与主动拍照；摄像头不可用时可继续上传。
 - 完整观察流程：示例或上传照片 → 选区 → 描述 → 处理进度 → SVG stroke animation → Before/After 滑块。
-- 精细选区：框选、8–48px 画笔、橡皮擦、60 步撤销／重做／清空；点和半径采用 normalized coordinates。
+- 精细选区：框选、8–48px 画笔、橡皮擦、60 步撤销／重做／清空；点和半径采用 normalized coordinates；手工笔迹带粉笔颗粒质感，实际识别 mask 仍连续。
 - 保留原照片：显影以 SVG 路径覆盖原图，可重播、查看原文件和切换历史显影版本。
 - 灵感日志：导入即存原文件和草稿，支持发现时间、上传时间、地点、坐标、详情编辑、时间轴与月历。
 - 照片地图：macOS MapKit 用照片缩略图标记位置，支持同地聚合、按月筛选和跳转记录。没有定位也能保存灵感。
@@ -73,6 +74,14 @@ bash desktop/package.sh /tmp/glimpse-build
 
 应用直接加载包内网页，无需本地后端或 Node 服务。构建产物在指定目录，临时编译文件在 .build/，不写入源代码目录之外的工作区。
 
+构建纯静态上传包：
+
+```bash
+pnpm build:static
+# 输出 .build/static-site/ 与 .build/Glimpse-v0.5.1-STATIC_SITE.zip
+```
+
+部署入口为 ZIP 根目录的 index.html，所有资源使用相对引用。已有静态包可直接上传，平台无需安装依赖；详见 [静态部署](docs/STATIC_SITE.md)。
 
 ## 版本与历史
 
@@ -82,6 +91,7 @@ bash desktop/package.sh /tmp/glimpse-build
 | --- | --- | --- |
 | [v0.4.0](https://github.com/Jessica-yaoyao/Glimpse/releases/tag/v0.4.0) | [release/0.4.0](https://github.com/Jessica-yaoyao/Glimpse/tree/release/0.4.0) | 建立奶油纸张、手写字、柔和纸块与参考插画的固定视觉系统。保留完整显影、日志、地图和评分流程。 |
 | [v0.5.0](https://github.com/Jessica-yaoyao/Glimpse/releases/tag/v0.5.0) | [release/0.5.0](https://github.com/Jessica-yaoyao/Glimpse/tree/release/0.5.0) | 增加首次开屏、真实记录首页、观察页、照片来源与摄像头；补齐三款 SVG 照片框、Nice day 与 Keep going 装饰。 |
+| [v0.5.1](https://github.com/Jessica-yaoyao/Glimpse/releases/tag/v0.5.1) | [release/0.5.1](https://github.com/Jessica-yaoyao/Glimpse/tree/release/0.5.1) | 精细选区采用粉笔颗粒笔迹，调整示例文案与设置位置；替换应用图标，并提供 STATIC_SITE 分发包。 |
 
 [完整 CHANGELOG](CHANGELOG.md) · [来源与恢复说明](docs/VERSION_HISTORY.md) · [历史视觉对照](docs/visual-history.html)
 
