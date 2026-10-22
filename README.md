@@ -2,9 +2,11 @@
 
 <p align="center"><img src="docs/images/icon.png" width="112" alt="灵感显影应用图标"></p>
 <p align="center">把你一瞬间「看错」的东西，描出来。<br>拍下日常、指出联想的位置，用原图上的 SVG 笔触留住灵感。</p>
-<p align="center"><a href="https://github.com/Jessica-yaoyao/Glimpse/releases/tag/v0.5.1">v0.5.1 下载</a> · <a href="#界面预览">界面预览</a> · <a href="CHANGELOG.md">迭代记录</a> · <a href="docs/VERSION_HISTORY.md">版本分支</a></p>
+<p align="center"><a href="https://jessica-yaoyao.github.io/Glimpse/">在线体验</a> · <a href="https://github.com/Jessica-yaoyao/Glimpse/releases/tag/v0.5.1">v0.5.1 下载</a> · <a href="#界面预览">界面预览</a> · <a href="CHANGELOG.md">迭代记录</a> · <a href="docs/VERSION_HISTORY.md">版本分支</a></p>
 
 Glimpse 是一款 Mobile-first 的视觉联想记录工具。例如，你把路面上的塑料袋看成蜷着的狐狸，就可以选择照片中的区域、描述这个联想，再观看轮廓沿原图显现，并把它保存为带时间和地点的灵感日志。
+
+**[打开网页版演示 →](https://jessica-yaoyao.github.io/Glimpse/)** 无需下载或 GitHub 登录，手机和电脑浏览器均可体验。显影使用 Mock，照片和日志保存在当前浏览器；Kimi 实时识别与系统地图在 macOS 应用提供。
 
 ## 快速下载
 
@@ -82,6 +84,8 @@ pnpm build:static
 ```
 
 部署入口为 ZIP 根目录的 index.html，所有资源使用相对引用。已有静态包可直接上传，平台无需安装依赖；详见 [静态部署](docs/STATIC_SITE.md)。
+
+已配置 GitHub Pages，通过独立的 `gh-pages` 分支发布构建产物。源码提交后运行 `pnpm deploy:pages` 更新站点；当前不以主分支推送自动触发源码构建。详见 [Pages 发布与回滚](docs/DEPLOYMENT.md)。
 
 ## 版本与历史
 
